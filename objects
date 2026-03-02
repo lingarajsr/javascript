@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Names Array Operations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .output {
+            font-size: 14px;
+            white-space: pre-line;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Names Array Operations</h2>
+    <button onclick="runOperations()">Run Operations</button>
+    <div class="output" id="result"></div>
+</div>
+
+<script>
+function runOperations() {
+
+    var names = ["John", "Jane", "Doe", "Alice", "Bob"];
+    var output = "";
+
+    // Print all names
+    output += "Original Names:\n";
+    names.forEach(function(name) {
+        output += name + "\n";
+    });
+
+    // Add "Eve"
+    names.push("Eve");
+    output += "\nAfter adding Eve:\n" + names + "\n";
+
+    // Remove "Doe"
+    var index = names.indexOf("Doe");
+    if (index !== -1) {
+        names.splice(index, 1);
+    }
+    output += "\nAfter removing Doe:\n" + names + "\n";
+
+    // Sort alphabetically
+    names.sort();
+    output += "\nSorted Names:\n" + names + "\n";
+
+    // Check if "Alice" exists
+    if (names.includes("Alice")) {
+        output += "\nAlice is present\n";
+    } else {
+        output += "\nAlice is not present\n";
+    }
+
+    // Convert to uppercase
+    var uppercaseNames = names.map(function(name) {
+        return name.toUpperCase();
+    });
+
+    output += "\nUppercase Names:\n" + uppercaseNames;
+
+    document.getElementById("result").innerText = output;
+}
+</script>
+
+</body>
+</html>
