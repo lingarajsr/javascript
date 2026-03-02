@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rectangle Area Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Rectangle Area Calculator</h2>
+
+    <input type="number" id="length" placeholder="Enter Length">
+    <input type="number" id="width" placeholder="Enter Width">
+
+    <button onclick="calculateArea()">Calculate</button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+    function calculateArea() {
+        var length = document.getElementById("length").value;
+        var width = document.getElementById("width").value;
+
+        if (length === "" || width === "") {
+            document.getElementById("result").innerText = "Please enter both values";
+            return;
+        }
+
+        var area = length * width;
+        document.getElementById("result").innerText = "Area = " + area;
+    }
+</script>
+
+</body>
+</html>
