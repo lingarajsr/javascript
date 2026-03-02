@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Task Solutions</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; background-color: #f4f4f9; }
+        section { background: white; padding: 15px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h2 { color: #333; border-bottom: 2px solid #007bff; padding-bottom: 5px; }
+        pre { background: #272822; color: #f8f8f2; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        .output { font-weight: bold; color: #007bff; }
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript Programming Tasks</h1>
+
+    <section>
+        <h2>1. Task for Objects</h2>
+        <div id="object-output"></div>
+    </section>
+
+    <section>
+        <h2>2. Task on Sets</h2>
+        <div id="sets-output"></div>
+    </section>
+
+    <section>
+        <h2>3. Task on Maps</h2>
+        <div id="maps-output"></div>
+    </section>
+
+    <script>
+        // --- 1. OBJECTS TASK ---
+        function Person(name, age, gender, occupation) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            this.occupation = occupation;
+            this.getDetails = function() {
+                return `${this.name}, a ${this.age}-year-old ${this.gender}, works as a ${this.occupation}.`;
+            };
+        }
+
+        const person1 = new Person("Alice Smith", 28, "Female", "Software Engineer");
+        const person2 = new Person("Bob Jones", 35, "Male", "Architect");
+
+        document.getElementById('object-output').innerHTML = `
+            <p><strong>Person 1:</strong> ${person1.getDetails()}</p>
+            <p><strong>Person 2:</strong> ${person2.getDetails()}</p>
+        `;
+
+        // --- 2. SETS TASK ---
+        // 2.1 Unique numbers from array
+        const getUnique = (arr) => new Set(arr);
+
+        // 2.2 Set Operations
+        const union = (s1, s2) => new Set([...s1, ...s2]);
+        const intersection = (s1, s2) => new Set([...s1].filter(x => s2.has(x)));
+        const difference = (s1, s2) => new Set([...s1].filter(x => !s2.has(x)));
+
+        // 2.3 Subset Check
+        const isSubset = (subset, superset) => [...subset].every(val => superset.has(val));
+
+        const setA = new Set([1, 2, 3]);
+        const setB = new Set([3, 4, 5]);
+
+        document.getElementById('sets-output').innerHTML = `
+            <p>Set A: [1, 2, 3] | Set B: [3, 4, 5]</p>
+            <ul>
+                <li><strong>Union:</strong> [${Array.from(union(setA, setB))}]</li>
+                <li><strong>Intersection:</strong> [${Array.from(intersection(setA, setB))}]</li>
+                <li><strong>Difference (A - B):</strong> [${Array.from(difference(setA, setB))}]</li>
+                <li><strong>Is {1, 2} a subset of A?</strong> ${isSubset(new Set([1,2]), setA)}</li>
+            </ul>
+        `;
+
+        // --- 3. MAPS TASK ---
+        const userMap = new Map();
+        
+        // Add
+        userMap.set("id", 101);
+        userMap.set("status", "Active");
+        userMap.set("role", "Admin");
+
+        // Access/Update/Delete
+        const initialStatus = userMap.get("status");
+        userMap.set("status", "Inactive"); // Update
+        userMap.delete("role"); // Delete
+
+        document.getElementById('maps-output').innerHTML = `
+            <p><strong>Initial Access (Status):</strong> ${initialStatus}</p>
+            <p><strong>Updated Status:</strong> ${userMap.get("status")}</p>
+            <p><strong>Map contains 'role'?</strong> ${userMap.has("role")}</p>
+            <p><strong>Final Map Size:</strong> ${userMap.size}</p>
+        `;
+
+        // Log to console as well for verification
+        console.log("Objects Task:", person1, person2);
+        console.log("Sets Union:", union(setA, setB));
+        console.log("Maps Final State:", userMap);
+    </script>
+</body>
+</html>
