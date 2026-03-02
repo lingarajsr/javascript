@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Operations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .output {
+            font-size: 14px;
+            white-space: pre-line;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Array Operations</h2>
+    <button onclick="performOperations()">Run Operations</button>
+    <div class="output" id="result"></div>
+</div>
+
+<script>
+function performOperations() {
+
+    var numbers = [10, 5, 8, 3, 12, 6];
+    var output = "";
+
+    // 1. Print length
+    output += "Length: " + numbers.length + "\n";
+
+    // 2. Add 7
+    numbers.push(7);
+    output += "After adding 7: " + numbers + "\n";
+
+    // 3. Remove first element
+    numbers.shift();
+    output += "After removing first element: " + numbers + "\n";
+
+    // 4. Sort ascending
+    numbers.sort(function(a, b) { return a - b; });
+    output += "Sorted ascending: " + numbers + "\n";
+
+    // 5. Reverse
+    numbers.reverse();
+    output += "Reversed: " + numbers + "\n";
+
+    // 6. Check if 8 exists
+    if (numbers.includes(8)) {
+        output += "Number 8 exists\n";
+    } else {
+        output += "Number 8 doesn't exist\n";
+    }
+
+    // 7. Find index of 12
+    output += "Index of 12: " + numbers.indexOf(12) + "\n";
+
+    // 8. Create doubledNumbers array
+    var doubledNumbers = numbers.map(function(num) {
+        return num * 2;
+    });
+
+    output += "Doubled Numbers: " + doubledNumbers;
+
+    document.getElementById("result").innerText = output;
+}
+</script>
+
+</body>
+</html>
