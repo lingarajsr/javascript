@@ -1,0 +1,19 @@
+function calculateAge(birthYear, currentYear) {
+    
+    // Convert values to numbers
+    var birth = Number(birthYear);
+    var current = Number(currentYear);
+
+    // Validate input
+    if (isNaN(birth) || isNaN(current)) {
+        return "Invalid input";
+    }
+
+    if (current < birth) {
+        return "Invalid years";
+    }
+
+    var age = current - birth;
+
+    return "You are " + age + " years old.";
+}
