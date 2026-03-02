@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Analyzer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 350px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>String Analyzer</h2>
+
+    <input type="text" id="inputString" placeholder="Enter a string">
+
+    <button onclick="analyze()">Analyze</button>
+
+    <div class="result" id="output"></div>
+</div>
+
+<script>
+function analyze() {
+    var text = document.getElementById("inputString").value;
+
+    if (text === "") {
+        document.getElementById("output").innerHTML = "Please enter a string.";
+        return;
+    }
+
+    var length = text.length;
+    var lower = text.toLowerCase();
+    var upper = text.toUpperCase();
+    var containsJavaScript = lower.includes("javascript");
+
+    var countA = 0;
+    for (var i = 0; i < lower.length; i++) {
+        if (lower[i] === "a") {
+            countA++;
+        }
+    }
+
+    document.getElementById("output").innerHTML =
+        "Length: " + length + "<br>" +
+        "Lowercase: " + lower + "<br>" +
+        "Uppercase: " + upper + "<br>" +
+        "Contains 'JavaScript': " + containsJavaScript + "<br>" +
+        "Count of 'a': " + countA;
+}
+</script>
+
+</body>
+</html>
