@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Combined Program</title>
+</head>
+<body>
+
+<button onclick="myFunc()">Click Me</button>
+
+<script>
+function myFunc() {
+
+    console.log("Number is positive");
+
+    let num = -5;
+    if (num > 0) {
+        console.log("Number is positive");
+    } else {
+        console.log("Number is negative");
+    }
+
+    let num2 = 0;
+    if (num2 > 0) {
+        console.log("Number is positive");
+    } else if (num2 == 0) {
+        console.log("Number is zero");
+    } else {
+        console.log("Number is negative");
+    }
+
+    let day = "Monday";
+    switch (day) {
+        case "Monday":
+            console.log("Today is Monday");
+            break;
+        case "Tuesday":
+            console.log("Today is Tuesday");
+            break;
+        default:
+            console.log("Today is neither Monday nor Tuesday");
+    }
+
+    for (let i = 1; i <= 3; i++) {
+        console.log(i);
+    }
+
+    const details = { company: "Wipro", course: "JS" };
+    for (const key in details) {
+        console.log(key + " : " + details[key]);
+    }
+
+    const colors = ["red", "green", "blue"];
+    for (const color of colors) {
+        console.log(color);
+    }
+
+    let count = 1;
+    while (count <= 3) {
+        console.log(count);
+        count++;
+    }
+
+    let num3 = 1;
+    do {
+        console.log(num3);
+        num3++;
+    } while (num3 <= 3);
+
+}
+</script>
+
+</body>
+</html>
